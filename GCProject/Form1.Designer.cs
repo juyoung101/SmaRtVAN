@@ -359,6 +359,7 @@
             // 
             // Timer
             // 
+            this.Timer.Enabled = true;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Form1
