@@ -8,25 +8,30 @@ namespace GCProject.SensorPackage
 {
     class SensorHandler
     {
-        List<iSensor> sensors { get; set; }
+        public List<iSensor> sensors { get; set; }
+        public SensorParser sparser { get; set; }
+        public List<String> tags { get; set; }
+
+        public SensorHandler(String filename)
+        {
+            sparser.filename = filename;
+        }
+
+        void addSensor(iSensor s)
+        {
+            sensors.Add(s);
+        }
 
         void updateSensors()
         {
             foreach(iSensor s in sensors)
             {
-                s.update();
+                s.update("");
             }
         }
 
-        bool hasUpdate()
+        public List<iSensor> getSensors()
         {
-
-            return false;
-        }
-
-        List<iSensor> getSensors()
-        {
-
             return sensors;
         }
     }

@@ -8,10 +8,19 @@ namespace GCProject.SensorPackage
 {
     class SensorParser
     {
-        String filename { get; set; }
-        List<String> data { get; set; }
+        public String filename { get; set; }
+        public List<String> data { get; set; }
 
-        void readFile()
+        public List<String> data_tags { get; set; }
+
+        public List<String> getDataTags()
+        {
+            List<String> tags = new List<String>();
+
+            return tags;
+        }
+
+        public void readFile()
         {
             int counter = 0;
             string line;
