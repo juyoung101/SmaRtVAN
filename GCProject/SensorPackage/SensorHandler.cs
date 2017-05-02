@@ -13,9 +13,9 @@ namespace GCProject.SensorPackage
         public List<String> tags { get; set; }
 
         //Function to get random number
-        private Random getrandom = new Random();
-        private object syncLock = new object();
-        public int getRandom()
+        private static Random getrandom = new Random();
+        private static object syncLock = new object();
+        public static int getRandom()
         {
             lock (syncLock)
             { // synchronize
