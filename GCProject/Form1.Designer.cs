@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.SuspendLayout();
             // 
             // Form1
@@ -40,7 +39,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
-=======
             this.panel1 = new System.Windows.Forms.Panel();
             this.InputDevices = new System.Windows.Forms.ListBox();
             this.OutputDevices = new System.Windows.Forms.ListBox();
@@ -392,7 +390,6 @@
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
->>>>>>> d2a1086da1c6f509c9acf70192d81f2b3e9a01af
 
         }
 
