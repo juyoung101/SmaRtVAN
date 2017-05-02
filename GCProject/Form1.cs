@@ -18,19 +18,12 @@ namespace GCProject
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Update_Remaining_Power(decimal power)
         {
 
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            Math.Round(power, 2);
+            string p = power.ToString();
+            CurrentStoredPower.Text = p + " MaH";
         }
     }
 }

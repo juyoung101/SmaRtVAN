@@ -114,7 +114,6 @@
             this.label1.Size = new System.Drawing.Size(194, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Input Devices";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -126,7 +125,6 @@
             this.label2.Size = new System.Drawing.Size(208, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Output Devices";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // TitleLabel
             // 
@@ -328,7 +326,6 @@
             this.label11.Size = new System.Drawing.Size(379, 50);
             this.label11.TabIndex = 12;
             this.label11.Text = "Interior Sensors";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
