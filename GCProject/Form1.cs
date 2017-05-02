@@ -46,5 +46,29 @@ namespace GCProject
             TimeRemaining.Text = "Est. Remaining Time: " + t + " min.";
         }
 
+        private void InputDevices_add_Click(object sender, EventArgs e)
+        {
+            //input device add
+        }
+
+        private void OutputDevices_add_Click(object sender, EventArgs e)
+        {
+            //output device add
+        }
+
+        private void InteriorSensors_add_Click(object sender, EventArgs e)
+        {
+            //interiorsensors add
+        }
+
+        private void ExteriorSensors_add_Click(object sender, EventArgs e)
+        {
+            //exterior sensors add
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // a;slkdjf;alsdkjf;alsdkja;sdlkjfa;lsdkfja;ldskfj
+        }
     }
 }

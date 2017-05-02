@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.OutputDevices_add = new System.Windows.Forms.Button();
             this.InputDevices_add = new System.Windows.Forms.Button();
@@ -54,6 +55,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.InteriorSensors_add = new System.Windows.Forms.Button();
             this.ExteriorSensors_add = new System.Windows.Forms.Button();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -83,6 +85,7 @@
             this.OutputDevices_add.TabIndex = 13;
             this.OutputDevices_add.Text = "+";
             this.OutputDevices_add.UseVisualStyleBackColor = false;
+            this.OutputDevices_add.Click += new System.EventHandler(this.OutputDevices_add_Click);
             // 
             // InputDevices_add
             // 
@@ -94,6 +97,7 @@
             this.InputDevices_add.TabIndex = 12;
             this.InputDevices_add.Text = "+";
             this.InputDevices_add.UseVisualStyleBackColor = false;
+            this.InputDevices_add.Click += new System.EventHandler(this.InputDevices_add_Click);
             // 
             // label2
             // 
@@ -337,6 +341,7 @@
             this.InteriorSensors_add.TabIndex = 14;
             this.InteriorSensors_add.Text = "+";
             this.InteriorSensors_add.UseVisualStyleBackColor = false;
+            this.InteriorSensors_add.Click += new System.EventHandler(this.InteriorSensors_add_Click);
             // 
             // ExteriorSensors_add
             // 
@@ -348,6 +353,11 @@
             this.ExteriorSensors_add.TabIndex = 15;
             this.ExteriorSensors_add.Text = "+";
             this.ExteriorSensors_add.UseVisualStyleBackColor = false;
+            this.ExteriorSensors_add.Click += new System.EventHandler(this.ExteriorSensors_add_Click);
+            // 
+            // Timer
+            // 
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Form1
             // 
@@ -407,6 +417,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button InteriorSensors_add;
         private System.Windows.Forms.Button ExteriorSensors_add;
+        private System.Windows.Forms.Timer Timer;
     }
 }
 
