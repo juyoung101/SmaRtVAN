@@ -40,5 +40,11 @@ namespace GCProject
             CurrentPowerExpendeture.Text = p + " MaH";
         }
 
+        public void Update_Time_Remaining(int time)
+        {
+            string t = time.ToString();
+            TimeRemaining.Text = "Est. Remaining Time: " + t + " min.";
+        }
+
     }
 }
