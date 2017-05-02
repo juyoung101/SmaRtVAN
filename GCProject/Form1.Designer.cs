@@ -192,6 +192,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.button2.Enabled = false;
             this.button2.ForeColor = System.Drawing.Color.DarkMagenta;
             this.button2.Location = new System.Drawing.Point(12, 216);
             this.button2.Name = "button2";
@@ -203,6 +204,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.button1.Enabled = false;
             this.button1.ForeColor = System.Drawing.Color.DarkMagenta;
             this.button1.Location = new System.Drawing.Point(153, 216);
             this.button1.Name = "button1";
