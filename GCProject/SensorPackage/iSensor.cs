@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GCProject.SensorPackage
 {
-    class iSensor
+    public class iSensor
     {
         public String SENSOR_DATA_TYPE_TAG { get; set; }
         public String value { get; set; }
