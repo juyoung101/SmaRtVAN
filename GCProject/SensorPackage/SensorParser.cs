@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GCProject.SensorPackage
 {
-    class SensorParser
+    public class SensorParser
     {
         public String filename { get; set; }
         public List<String> data { get; set; }

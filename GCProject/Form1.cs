@@ -1,4 +1,5 @@
 ﻿
+using GCProject.SensorPackage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,6 +70,7 @@ namespace GCProject
         private void Timer_Tick(object sender, EventArgs e)
         {
             // a;slkdjf;alsdkjf;alsdkja;sdlkjfa;lsdkfja;ldskfj
+            Update_Power_Expendeture(SensorHandler.getRandom());
         }
 
         public void Update_Input_Device_List()
