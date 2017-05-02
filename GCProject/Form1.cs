@@ -71,5 +71,15 @@ namespace GCProject
             // a;slkdjf;alsdkjf;alsdkja;sdlkjfa;lsdkfja;ldskfj
         }
 
+        public void Update_Input_Device_List()
+        {
+            //code here
+        }
+
+        public void Update_Output_Device_List()
+        {
+            //code here
+        }
+
     }
 }
