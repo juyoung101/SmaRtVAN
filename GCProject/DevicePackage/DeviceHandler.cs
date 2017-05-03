@@ -24,17 +24,17 @@ namespace GCProject.DevicePackage
 
             Device wind_turbine_1 = new Device();
             wind_turbine_1.deviceName = "Turbine 1";
-            wind_turbine_1.energyAmount = "15";
-            wind_turbine_1.currentValue = 16;
-            wind_turbine_1.history.Add(10);
-            wind_turbine_1.history.Add(17);
-            wind_turbine_1.history.Add(14);
+            wind_turbine_1.energyAmount = "60";
+            wind_turbine_1.currentValue = 66;
+            wind_turbine_1.history.Add(57);
+            wind_turbine_1.history.Add(67);
+            wind_turbine_1.history.Add(58);
             addInputDevice(wind_turbine_1);
 
             Device fridge = new DevicePackage.Device();
             fridge.deviceName = "Fridgy";
-            fridge.energyAmount = "200";
-            fridge.currentValue = 189;
+            fridge.energyAmount = "150";
+            fridge.currentValue = 133;
             fridge.history.Add(202);
             fridge.history.Add(189);
             addOutputDevice(fridge);
