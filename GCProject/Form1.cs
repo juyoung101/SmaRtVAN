@@ -115,6 +115,9 @@ namespace GCProject
 
             sHandler.updateSensors();
             Update_Time_And_Date(sHandler.getDateSensor().read(), sHandler.getTimeSensor().read());
+            decimal powerIn = 0;
+            decimal powerOut = 0;
+            
 
             //DEBUG 
             Update_Power_Expendeture(SensorHandler.getRandom() % 1000);
