@@ -11,7 +11,6 @@ namespace GCProject.DevicePackage
         public List<Device> inputDevices { get; set; }
         public List<Device> outputDevices { get; set; }
 
-<<<<<<< HEAD
         public void generateDebugList()
         {
             Device solar_panel_1 = new Device();
@@ -26,14 +25,12 @@ namespace GCProject.DevicePackage
             wind_turbine_1.energyAmount = "16";
             addInputDevice(wind_turbine_1);
         }
-=======
         public DeviceHandler()
         {
             inputDevices = new List<Device>();
             outputDevices = new List<Device>();
         }
 
->>>>>>> 4da48f7179b6d4f41cef0a396ea28935befd6330
         public void addInputDevice(Device d)
         {
             inputDevices.Add(d);
