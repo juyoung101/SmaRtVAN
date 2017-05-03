@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GCProject.SensorPackage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,22 @@ namespace GCProject.DevicePackage
         public string energyAmount { get; set; }
         public List<decimal> history { get; set; }
         public int historyIndex { get; set; }
+        public decimal currentValue { get; set; }
+        
+        public decimal read()
+        {
+            return currentValue;
+        }
+
+        public decimal update()
+        {
+            decimal energy = 0;
+            energy = Decimal.Parse(energyAmount);
+            energy += (SensorHandler.getRandom() % 10) - 5;
+            makeHistory(energy);
+            currentValue = energy;
+            return energy;
+        }
 
         public decimal getTrend()
         {
@@ -50,6 +67,11 @@ namespace GCProject.DevicePackage
                 history[historyIndex] = energyIn;
                 historyIndex = historyIndex++ % 5;
             }
+        }
+
+        public string toString()
+        {
+            return "" + read();
         }
     }
 }

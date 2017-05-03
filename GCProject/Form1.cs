@@ -16,6 +16,7 @@ namespace GCProject
     public partial class Form1 : Form
     {
         public SensorHandler sHandler { get; set; }
+        public uint battery { get; set; }
 
         public Form1()
         {
@@ -24,8 +25,9 @@ namespace GCProject
             /****************** /
                    Init
             / ******************/
-            //DEBUG
+            battery = 500; //Initial setup with battery containing 500 MaH
             sHandler = new SensorHandler(@".\SensorPackage\DataSets\location1\December.csv");
+            //DEBUG
             iSensor mockSensor = iSensor.makeSensor("DATE", "01/01/2017", "String", false);
             //SensorParser sparse = new SensorParser();
             //sparse.filename = @"C:\Users\Justin\Dropbox\class\CS5860\project\SensorPackage\DataSets\location1\December.csv";

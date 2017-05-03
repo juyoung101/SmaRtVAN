@@ -12,7 +12,7 @@ namespace GCProject.Collection
     {
         public string energyProductionAmount { get; set; }
 
-        decimal read()
+        decimal update()
         {
             decimal energy = 0;
             energy = Decimal.Parse(energyProductionAmount);

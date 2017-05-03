@@ -8,7 +8,30 @@ namespace GCProject.DevicePackage
 {
     class DeviceHandler
     {
-        public List<Device> devices { get; set;
+        public List<Device> inputDevices { get; set; }
+        public List<Device> outputDevices { get; set; }
+
+        public void addInputDevice(Device d)
+        {
+            inputDevices.Add(d);
         }
+
+        public void addOutputDevice(Device d)
+        {
+            inputDevices.Add(d);
+        }
+
+        public void updateDevices()
+        {
+            foreach(var a in inputDevices)
+            {
+                a.update();
+            }
+            foreach(var b in outputDevices)
+            {
+                b.update();
+            }
+        }
+        
     }
 }

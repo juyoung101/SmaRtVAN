@@ -20,7 +20,7 @@ namespace GCProject.Collection
             isTimeSet = true;
         }
 
-        decimal read()
+        public decimal update()
         {
             decimal energy = 0;
             energy = Decimal.Parse(energyProductionAmount);
