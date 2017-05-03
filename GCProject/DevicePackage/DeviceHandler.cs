@@ -11,6 +11,12 @@ namespace GCProject.DevicePackage
         public List<Device> inputDevices { get; set; }
         public List<Device> outputDevices { get; set; }
 
+        public DeviceHandler()
+        {
+            inputDevices = new List<Device>();
+            outputDevices = new List<Device>();
+        }
+
         public void addInputDevice(Device d)
         {
             inputDevices.Add(d);
