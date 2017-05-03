@@ -1,44 +1,34 @@
-﻿using GCProject.SensorPackage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GCProject.Collection
+namespace GCProject.DevicePackage
 {
-    public class EnergyCollector
+    public class Device
     {
         public string deviceName { get; set; }
-        public string energyProductionAmount { get; set; }
+        public string energyAmount { get; set; }
         public List<decimal> history { get; set; }
-        int historyIndex { get; set; }
-    
-        decimal read()
-        {
-            decimal energy = 0;
-            energy = Decimal.Parse(energyProductionAmount);
-            energy += (SensorHandler.getRandom() % 10) - 5;
-            makeHistory(energy);
-            return energy;
-        }
+        public int historyIndex { get; set; }
 
-        decimal getTrend()
+        public decimal getTrend()
         {
-            if(history.Count == 0)
+            if (history.Count == 0)
                 return 0;
             return history.Average();
         }
 
-        bool isTrendIncreasing()
+        public bool isTrendIncreasing()
         {
             decimal diff = 0;
-            for(int i = 0; i < history.Count-1; ++i)
+            for (int i = 0; i < history.Count - 1; ++i)
             {
                 diff += history[i + 1] - history[i];
             }
 
-            if(diff < 0)
+            if (diff < 0)
             {
                 return false;
             }
@@ -47,10 +37,10 @@ namespace GCProject.Collection
                 return true;
             }
         }
-        
-        void makeHistory(decimal energyIn)
+
+        public void makeHistory(decimal energyIn)
         {
-            if(history.Count < 5)
+            if (history.Count < 5)
             {
                 history.Add(energyIn);
                 historyIndex = history.Count;
@@ -61,6 +51,5 @@ namespace GCProject.Collection
                 historyIndex = historyIndex++ % 5;
             }
         }
-
     }
 }
