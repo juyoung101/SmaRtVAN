@@ -131,6 +131,10 @@ namespace GCProject
             Update_Power_Generation(powerIn);
             Update_Remaining_Power(battery);
             Update_Time_Remaining(0);
+
+            Update_Input_Device_List();
+            Update_Output_Device_List();
+
             /*
             //DEBUG 
             Update_Power_Expendeture(SensorHandler.getRandom() % 1000);
