@@ -17,12 +17,18 @@ namespace GCProject.DevicePackage
             solar_panel_1.deviceName = "Solar Panel 1";
             solar_panel_1.energyAmount = "113";
             solar_panel_1.energyAmount = "100";
+            solar_panel_1.history.Add(111);
+            solar_panel_1.history.Add(116);
+            solar_panel_1.history.Add(120);
             addInputDevice(solar_panel_1);
 
             Device wind_turbine_1 = new Device();
             wind_turbine_1.deviceName = "Turbine 1";
             wind_turbine_1.energyAmount = "15";
             wind_turbine_1.energyAmount = "16";
+            wind_turbine_1.history.Add(10);
+            wind_turbine_1.history.Add(17);
+            wind_turbine_1.history.Add(14);
             addInputDevice(wind_turbine_1);
         }
         public DeviceHandler()
