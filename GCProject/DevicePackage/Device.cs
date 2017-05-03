@@ -14,6 +14,15 @@ namespace GCProject.DevicePackage
         public List<decimal> history { get; set; }
         public int historyIndex { get; set; }
         public decimal currentValue { get; set; }
+
+        public Device()
+        {
+            deviceName = "defaultDeviceName";
+            energyAmount = "1";
+            history = new List<decimal>();
+            historyIndex = 0;
+            currentValue = 1;
+        }
         
         public decimal read()
         {
