@@ -61,13 +61,19 @@ namespace GCProject.DevicePackage
 
         public void updateDevices()
         {
-            foreach(var a in inputDevices)
-            {
-                a.update();
+            if(inputDevices != null && inputDevices.Count > 0)
+            { 
+                foreach(var a in inputDevices)
+                {
+                    a.update();
+                }
             }
-            foreach(var b in outputDevices)
+            if (inputDevices != null && inputDevices.Count > 0)
             {
-                b.update();
+                foreach (var b in outputDevices)
+                {
+                    b.update();
+                }
             }
         }
         
