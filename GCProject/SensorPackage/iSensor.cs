@@ -11,6 +11,7 @@ namespace GCProject.SensorPackage
         public String SENSOR_DATA_TYPE_TAG { get; set; }
         public String value { get; set; }
         public String value_type { get; set; }
+        public bool isInternal { get; set; }
         public static iSensor makeSensor(String data_tag, String initialValue, String data_type)
         {
             iSensor a = new iSensor();
@@ -26,6 +27,7 @@ namespace GCProject.SensorPackage
 
         public string read()
         {
+            //TODO Figure out a way to cast the value when read.
             return this.value;
         }
     }

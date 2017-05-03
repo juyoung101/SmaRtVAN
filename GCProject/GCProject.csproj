@@ -87,9 +87,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SensorPackage\DataSets\location1\December.csv" />
-    <None Include="SensorPackage\DataSets\location1\June.csv" />
-    <None Include="SensorPackage\DataSets\location1\LoganAirport.csv" />
+    <None Include="SensorPackage\DataSets\location1\December.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SensorPackage\DataSets\location1\June.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SensorPackage\DataSets\location1\September.csv" />
     <None Include="SensorPackage\DataSets\location2\December.csv" />
     <None Include="SensorPackage\DataSets\location2\IdahoFallsFanningField.csv" />

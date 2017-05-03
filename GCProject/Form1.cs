@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace GCProject
                    Init
             / ******************/
             //DEBUG
-            SensorHandler sHandler = new SensorHandler(@"\DataSets\location1\December.csv");
+            SensorHandler sHandler = new SensorHandler(@".\SensorPackage\DataSets\location1\December.csv");
             iSensor mockSensor = iSensor.makeSensor("DATE", "01/01/2017", "String");
             //SensorParser sparse = new SensorParser();
             //sparse.filename = @"C:\Users\Justin\Dropbox\class\CS5860\project\SensorPackage\DataSets\location1\December.csv";
