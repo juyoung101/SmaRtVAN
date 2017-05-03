@@ -12,6 +12,7 @@ namespace GCProject.SensorPackage
         public String value { get; set; }
         public String value_type { get; set; }
         public bool isInternal { get; set; }
+
         public static iSensor makeSensor(String data_tag, String initialValue, String data_type, bool isThisSensorInternal)
         {
             iSensor a = new iSensor();
@@ -21,6 +22,7 @@ namespace GCProject.SensorPackage
             a.isInternal = isThisSensorInternal;
             return a;
         }
+
         public void update(String newValue)
         {
             value = newValue;
