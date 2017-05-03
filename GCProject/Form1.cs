@@ -24,7 +24,7 @@ namespace GCProject
             / ******************/
             //DEBUG
             SensorHandler sHandler = new SensorHandler(@".\SensorPackage\DataSets\location1\December.csv");
-            iSensor mockSensor = iSensor.makeSensor("DATE", "01/01/2017", "String");
+            iSensor mockSensor = iSensor.makeSensor("DATE", "01/01/2017", "String", false);
             //SensorParser sparse = new SensorParser();
             //sparse.filename = @"C:\Users\Justin\Dropbox\class\CS5860\project\SensorPackage\DataSets\location1\December.csv";
             //sparse.readFile();
