@@ -21,6 +21,44 @@ namespace GCProject.DevicePackage
             inputDevices.Add(d);
         }
 
+        public List<Device> getInputDevices()
+        {
+            return inputDevices;
+        }
+
+        public List<Device> getOutputDevics()
+        {
+            return outputDevices;
+        }
+
+        public decimal getInputEnergy()
+        {
+            decimal energy = 0;
+            foreach(var i in inputDevices)
+            {
+                energy += i.read();
+            }
+            return energy;
+        }
+
+        public decimal getOutputEnergy()
+        {
+            decimal energy = 0;
+            foreach (var o in outputDevices)
+            {
+                energy += o.read();
+            }
+            return energy;
+        }
+
+        public decimal getEnergyDifference()
+        {
+            decimal energy = 0;
+            energy += getInputEnergy();
+            energy -= getOutputEnergy();
+            return energy;
+        }
+
         public void updateDevices()
         {
             foreach(var a in inputDevices)
