@@ -60,7 +60,7 @@ namespace GCProject.DevicePackage
 
         public void addOutputDevice(Device d)
         {
-            inputDevices.Add(d);
+            outputDevices.Add(d);
         }
 
         public List<Device> getInputDevices()

@@ -129,7 +129,7 @@ namespace GCProject
 
             Update_Power_Expendeture(powerOut);
             Update_Power_Generation(powerIn);
-            Update_Remaining_Power(0);
+            Update_Remaining_Power(battery);
             Update_Time_Remaining(0);
             /*
             //DEBUG 
