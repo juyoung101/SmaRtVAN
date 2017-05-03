@@ -17,7 +17,7 @@ namespace GCProject
     public partial class Form1 : Form
     {
         public SensorHandler sHandler { get; set; }
-        public uint battery { get; set; }
+        public decimal battery { get; set; }
 
         public DeviceHandler deviceHandler = new DeviceHandler();
        
@@ -123,15 +123,10 @@ namespace GCProject
             Update_Time_And_Date(sHandler.getDateSensor().read(), sHandler.getTimeSensor().read());
             decimal powerIn = 0;
             decimal powerOut = 0;
-            foreach (Device id in deviceHandler.inputDevices){
-                //call the function
-                //powerIn = 
-            }
-            foreach(Device od in deviceHandler.outputDevices)
-            {
-                //all the function
-                //powerOut = 
-            }
+            powerIn = deviceHandler.getInputEnergy();
+            powerOut = deviceHandler.getOutputEnergy();
+            battery += deviceHandler.getEnergyDifference();
+
             Update_Power_Expendeture(powerOut);
             Update_Power_Generation(powerIn);
             Update_Remaining_Power(0);
@@ -145,6 +140,9 @@ namespace GCProject
             //Update_Time_And_Date("Str1", "str2");
             //DEBUG
             */
+
+            if (battery <= 0)
+                battery = 1000000000;
         }
 
         public void Update_Input_Device_List()
