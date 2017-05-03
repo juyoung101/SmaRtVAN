@@ -151,7 +151,7 @@ namespace GCProject
 
         public void Update_Input_Device_List()
         {
-
+            InputDevices.Items.Clear();
             foreach (Device d in deviceHandler.inputDevices)
             {
                 InputDevices.Items.Add(d.deviceName);
@@ -160,7 +160,11 @@ namespace GCProject
 
         public void Update_Output_Device_List()
         {
-            //code here
+            OutputDevices.Items.Clear();
+            foreach (Device d in deviceHandler.outputDevices)
+            {
+                OutputDevices.Items.Add(d.deviceName);
+            }
         }
 
     }
