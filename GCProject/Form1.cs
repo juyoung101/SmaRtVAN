@@ -1,5 +1,6 @@
 ﻿
 using GCProject.SensorPackage;
+using GCProject.DevicePackage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace GCProject
     {
         public SensorHandler sHandler { get; set; }
         public uint battery { get; set; }
+
+        public DeviceHandler deviceHandler = new DeviceHandler();
 
         public Form1()
         {
@@ -114,11 +117,24 @@ namespace GCProject
             // a;slkdjf;alsdkjf;alsdkja;sdlkjfa;lsdkfja;ldskfj
 
             sHandler.updateSensors();
+            deviceHandler.updateDevices();
             Update_Time_And_Date(sHandler.getDateSensor().read(), sHandler.getTimeSensor().read());
             decimal powerIn = 0;
             decimal powerOut = 0;
-            
-
+            foreach (Device id in deviceHandler.inputDevices){
+                //call the function
+                //powerIn = 
+            }
+            foreach(Device od in deviceHander.outputDevices)
+            {
+                //all the function
+                //powerOut = 
+            }
+            Update_Power_Expendeture(powerOut);
+            Update_Power_Generation(powerIn);
+            Update_Remaining_Power(0);
+            Update_Time_Remaining(0);
+            /*
             //DEBUG 
             Update_Power_Expendeture(SensorHandler.getRandom() % 1000);
             Update_Power_Generation(SensorHandler.getRandom() % 1100);
@@ -126,6 +142,7 @@ namespace GCProject
             Update_Time_Remaining(SensorHandler.getRandom() % 20);
             //Update_Time_And_Date("Str1", "str2");
             //DEBUG
+            */
         }
 
         public void Update_Input_Device_List()
