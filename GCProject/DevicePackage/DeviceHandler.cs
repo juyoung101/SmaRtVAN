@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GCProject.DevicePackage
 {
-    class DeviceHandler
+    public class DeviceHandler
     {
         public List<Device> inputDevices { get; set; }
         public List<Device> outputDevices { get; set; }
@@ -68,6 +68,7 @@ namespace GCProject.DevicePackage
                     a.update();
                 }
             }
+
             if (inputDevices != null && inputDevices.Count > 0)
             {
                 foreach (var b in outputDevices)
