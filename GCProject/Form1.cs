@@ -147,7 +147,11 @@ namespace GCProject
 
         public void Update_Input_Device_List()
         {
-            //code here
+
+            foreach (Device d in deviceHandler.inputDevices)
+            {
+                InputDevices.Items.Add(d.deviceName);
+            }
         }
 
         public void Update_Output_Device_List()
