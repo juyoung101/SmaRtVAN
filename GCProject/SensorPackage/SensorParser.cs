@@ -9,17 +9,42 @@ namespace GCProject.SensorPackage
     public class SensorParser
     {
         public String filename { get; set; }
-        public List<String> data { get; set; }
+        public List<String> tags { get; set; }
+        public System.IO.StreamReader file { get; set; }
 
-        public List<String> data_tags { get; set; }
+        public SensorParser(string fname)
+        {
+            this.filename = fname;
+            file = new System.IO.StreamReader(@filename);
+
+            //read the first line of the file and save it as exploded list
+            //then store tags
+            tags = readLine().Split(',').ToList<String>();
+        }
 
         public List<String> getDataTags()
         {
-            List<String> tags = new List<String>();
-
             return tags;
         }
 
+        public string readLine()
+        { ///advance to the next line in the file if it isn't at the end.
+          ///if at the end, return "null"
+          ///else return the line
+            // string line = "";
+            string line = file.ReadLine();
+
+            if (line != null)
+            {
+                return line;
+            }
+            else
+            {
+                return "null";
+            }
+        }
+
+        //DEBUG - remove this function before deployment
         public void readFile()
         {
             int counter = 0;
@@ -38,9 +63,6 @@ namespace GCProject.SensorPackage
             }
 
             file.Close();
-            System.Console.WriteLine("There were {0} lines.", counter);
-            // Suspend the screen.  
-            System.Console.ReadLine();
         }
     }
 }

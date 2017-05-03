@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GCProject.Appliances
 {
-    class RefridgeratorExpender
+    public class RefridgeratorExpender
     {
     }
 }

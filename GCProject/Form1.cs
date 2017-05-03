@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace GCProject
 {
     public partial class Form1 : Form
     {
+        public SensorHandler sHandler { get; set; }
+
         public Form1()
         {
             InitializeComponent();
@@ -22,8 +25,8 @@ namespace GCProject
                    Init
             / ******************/
             //DEBUG
-            SensorHandler sHandler = new SensorHandler(@"\DataSets\location1\December.csv");
-            iSensor mockSensor = iSensor.makeSensor("DATE", "01/01/2017", "String");
+            sHandler = new SensorHandler(@".\SensorPackage\DataSets\location1\December.csv");
+            iSensor mockSensor = iSensor.makeSensor("DATE", "01/01/2017", "String", false);
             //SensorParser sparse = new SensorParser();
             //sparse.filename = @"C:\Users\Justin\Dropbox\class\CS5860\project\SensorPackage\DataSets\location1\December.csv";
             //sparse.readFile();
@@ -108,12 +111,15 @@ namespace GCProject
         {
             // a;slkdjf;alsdkjf;alsdkja;sdlkjfa;lsdkfja;ldskfj
 
+            sHandler.updateSensors();
+            Update_Time_And_Date(sHandler.getDateSensor().read(), sHandler.getTimeSensor().read());
+
             //DEBUG 
             Update_Power_Expendeture(SensorHandler.getRandom() % 1000);
             Update_Power_Generation(SensorHandler.getRandom() % 1100);
             Update_Remaining_Power(SensorHandler.getRandom() % 459);
             Update_Time_Remaining(SensorHandler.getRandom() % 20);
-            Update_Time_And_Date("Str1", "str2");
+            //Update_Time_And_Date("Str1", "str2");
             //DEBUG
         }
 
