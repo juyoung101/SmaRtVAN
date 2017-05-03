@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GCProject.Ration
 {
-    class WeatherForcast
+    public class WeatherForcast
     {
     }
 }

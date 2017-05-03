@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GCProject.Collection
 {
-    class SolarCollector
+    public class SolarCollector
     {
     }
 }

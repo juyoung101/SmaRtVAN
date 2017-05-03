@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GCProject.Appliances
 {
-    class EnvironmentExpender
+    public class EnvironmentExpender
     {
     }
 }

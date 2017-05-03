@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GCProject.Collection
 {
-    class GeneratorCollector
+    public class GeneratorCollector
     {
     }
 }
