@@ -23,5 +23,10 @@ namespace GCProject.SensorPackage
         {
             value = newValue;
         }
+
+        public string read()
+        {
+            return this.value;
+        }
     }
 }

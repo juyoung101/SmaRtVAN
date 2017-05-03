@@ -29,7 +29,11 @@ namespace GCProject.SensorPackage
             System.IO.StreamReader file = new System.IO.StreamReader(@filename);
             while ((line = file.ReadLine()) != null)
             {
-                System.Console.WriteLine(line);
+                foreach(String s in line.Split(','))
+                {
+                    System.Console.Write(s + " ");
+                }
+                System.Console.WriteLine();
                 counter++;
             }
 
