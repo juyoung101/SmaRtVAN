@@ -45,20 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DevicePackage\Device.cs" />
+    <Compile Include="DevicePackage\DeviceHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PowerInPackage\EnergyCollector.cs" />
-    <Compile Include="PowerInPackage\GeneratorCollector.cs" />
-    <Compile Include="PowerInPackage\SolarCollector.cs" />
-    <Compile Include="PowerInPackage\WindCollector.cs" />
-    <Compile Include="PowerOutPackage\EnergyExpender.cs" />
-    <Compile Include="PowerOutPackage\EnvironmentExpender.cs" />
-    <Compile Include="PowerOutPackage\LightingExpender.cs" />
-    <Compile Include="PowerOutPackage\RefridgeratorExpender.cs" />
+    <Compile Include="DevicePackage\PowerInPackage\EnergyCollector.cs" />
+    <Compile Include="DevicePackage\PowerInPackage\GeneratorCollector.cs" />
+    <Compile Include="DevicePackage\PowerInPackage\SolarCollector.cs" />
+    <Compile Include="DevicePackage\PowerInPackage\WindCollector.cs" />
+    <Compile Include="DevicePackage\PowerOutPackage\EnergyExpender.cs" />
+    <Compile Include="DevicePackage\PowerOutPackage\EnvironmentExpender.cs" />
+    <Compile Include="DevicePackage\PowerOutPackage\LightingExpender.cs" />
+    <Compile Include="DevicePackage\PowerOutPackage\RefridgeratorExpender.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RationPackage\EnergyForcast.cs" />
