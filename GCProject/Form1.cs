@@ -125,7 +125,7 @@ namespace GCProject
                 //call the function
                 //powerIn = 
             }
-            foreach(Device od in deviceHander.outputDevices)
+            foreach(Device od in deviceHandler.outputDevices)
             {
                 //all the function
                 //powerOut = 
