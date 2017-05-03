@@ -12,7 +12,7 @@ namespace GCProject.DevicePackage
         public string deviceName { get; set; }
         public string energyAmount { get; set; }
         public List<decimal> history { get; set; }
-        public int historyIndex { get; set; }
+        //public int historyIndex { get; set; }
         public decimal currentValue { get; set; }
 
         public Device()
@@ -20,7 +20,7 @@ namespace GCProject.DevicePackage
             deviceName = "defaultDeviceName";
             energyAmount = "1";
             history = new List<decimal>();
-            historyIndex = 0;
+            //historyIndex = 0;
             currentValue = 1;
         }
         
@@ -66,15 +66,17 @@ namespace GCProject.DevicePackage
 
         public void makeHistory(decimal energyIn)
         {
-            if (history.Count < 5)
+            if (history.Count <= 5)
             {
                 history.Add(energyIn);
-                historyIndex = history.Count;
+                //historyIndex++;
             }
             else
             {
-                history[historyIndex] = energyIn;
-                historyIndex = historyIndex++ % 5;
+                history.RemoveAt(0);
+                history.Add(energyIn);
+                //history[historyIndex] = energyIn;
+                //historyIndex = historyIndex++ % 5;
             }
         }
 
