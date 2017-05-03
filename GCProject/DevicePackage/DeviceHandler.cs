@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace GCProject.DevicePackage
 {
-    class DeviceHandler
+    public class DeviceHandler
     {
         public List<Device> inputDevices { get; set; }
         public List<Device> outputDevices { get; set; }
 
+        public void generateDebugList()
+        {
+            Device solar_panel_1 = new Device();
+            solar_panel_1.deviceName = "Solar Panel 1";
+            solar_panel_1.energyAmount = "113";
+            solar_panel_1.energyAmount = "100";
+            addInputDevice(solar_panel_1);
+
+            Device wind_turbine_1 = new Device();
+            wind_turbine_1.deviceName = "Turbine 1";
+            wind_turbine_1.energyAmount = "15";
+            wind_turbine_1.energyAmount = "16";
+            addInputDevice(wind_turbine_1);
+        }
         public void addInputDevice(Device d)
         {
             inputDevices.Add(d);

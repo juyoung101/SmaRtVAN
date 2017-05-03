@@ -20,6 +20,7 @@ namespace GCProject
         public uint battery { get; set; }
 
         public DeviceHandler deviceHandler = new DeviceHandler();
+       
 
         public Form1()
         {
@@ -30,6 +31,7 @@ namespace GCProject
             / ******************/
             battery = 500; //Initial setup with battery containing 500 MaH
             sHandler = new SensorHandler(@".\SensorPackage\DataSets\location1\December.csv");
+            deviceHandler.generateDebugList();
             //DEBUG
             iSensor mockSensor = iSensor.makeSensor("DATE", "01/01/2017", "String", false);
             //SensorParser sparse = new SensorParser();
