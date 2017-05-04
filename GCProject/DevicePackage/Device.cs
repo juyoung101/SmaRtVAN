@@ -15,6 +15,15 @@ namespace GCProject.DevicePackage
         //public int historyIndex { get; set; }
         public decimal currentValue { get; set; }
 
+        public static Device makeDevice(String device_name, String energy_amount, decimal default_amount)
+        {
+            Device d = new Device();
+            d.deviceName = device_name;
+            d.energyAmount = energy_amount;
+            d.currentValue = default_amount;
+            return d;
+        }
+
         public Device()
         {
             deviceName = "defaultDeviceName";
@@ -26,23 +35,25 @@ namespace GCProject.DevicePackage
         
         public decimal read()
         {
+            Math.Round(currentValue, 2);
             return currentValue;
         }
 
         public decimal update()
         {
             decimal energy = 0;
-            energy = Decimal.Parse(energyAmount);
-            energy += (SensorHandler.getRandom() % 10) - 5;
+            energy = getTrend();
+            energy += (SensorHandler.getRandom() % 6) - 3;
             makeHistory(energy);
             currentValue = energy;
+            Math.Round(energy, 2);
             return energy;
         }
 
         public decimal getTrend()
         {
             if (history.Count == 0)
-                return 0;
+                return Decimal.Parse(energyAmount);
             return history.Average();
         }
 
@@ -80,9 +91,9 @@ namespace GCProject.DevicePackage
             }
         }
 
-        public string toString()
+        new public string ToString()
         {
-            return "" + read();
+            return deviceName + " - " + read().ToString("F");
         }
     }
 }

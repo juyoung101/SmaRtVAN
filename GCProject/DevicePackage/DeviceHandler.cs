@@ -95,9 +95,8 @@ namespace GCProject.DevicePackage
 
         public decimal getEnergyDifference()
         {
-            decimal energy = 0;
-            energy += getInputEnergy();
-            energy -= getOutputEnergy();
+            decimal energy;
+            energy = getInputEnergy() - getOutputEnergy();
             return energy;
         }
 

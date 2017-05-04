@@ -8,7 +8,8 @@ namespace GCProject.SensorPackage
 {
     public class SensorHandler
     {
-        public List<iSensor> sensors { get; set; }
+        public List<iSensor> internalSensors { get; set; }
+        public List<iSensor> externalSensors { get; set; }
         public SensorParser sparser { get; set; }
         public iSensor date_sensor { get; set; }
         public iSensor time_sensor { get; set; }
@@ -26,15 +27,21 @@ namespace GCProject.SensorPackage
 
         public SensorHandler(String filename_in)
         {
-            sensors = new List<iSensor>();
+            internalSensors = new List<iSensor>();
+            externalSensors = new List<iSensor>();
             sparser = new SensorParser(filename_in);
             date_sensor = iSensor.makeSensor("DATE", "01/01/1970", "String", false);
             time_sensor = iSensor.makeSensor("TIME", "12:59", "String", false);
         }
 
-        void addSensor(iSensor s)
+        public void AddInternal(iSensor s)
         {
-            sensors.Add(s);
+            internalSensors.Add(s);
+        }
+
+        public void AddExternal(iSensor s)
+        {
+            externalSensors.Add(s);
         }
 
         public void updateSensors()
@@ -49,15 +56,18 @@ namespace GCProject.SensorPackage
                 for (int i = 3; i < values.Count; ++i)
                 {
                     string tag = sparser.tags[i];
-                    foreach (iSensor s in sensors)
+                    foreach (iSensor s in internalSensors)
                     {
-                        if (s.SENSOR_DATA_TYPE_TAG == tag)
+                        if (s.SENSOR_DATA_TAG == tag)
+                        {
+                            s.update(values[i] + ((getRandom() % 5) - 2));
+                        }
+                    }
+                    foreach (iSensor s in externalSensors)
+                    {
+                        if (s.SENSOR_DATA_TAG == tag)
                         {
                             s.update(values[i]);
-                            if (s.isInternal == true)
-                            {
-                                s.update(values[i] + ((getRandom() % 5) - 2));
-                            }
                         }
                     }
                 }
@@ -76,7 +86,26 @@ namespace GCProject.SensorPackage
 
         public List<iSensor> getSensors()
         {
-            return sensors;
+            List<iSensor> allSensors = new List<iSensor>();
+            foreach(iSensor i in internalSensors)
+            {
+                allSensors.Add(i);
+            }
+            foreach(iSensor e in externalSensors)
+            {
+                allSensors.Add(e);
+            }
+            return allSensors;
+        }
+
+        public List<iSensor> getInternalSensors()
+        {
+            return internalSensors;
+        }
+
+        public List<iSensor> getExternalSensors()
+        {
+            return externalSensors;
         }
     }
 }

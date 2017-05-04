@@ -29,7 +29,7 @@ namespace GCProject
             /****************** /
                    Init
             / ******************/
-            battery = 500; //Initial setup with battery containing 500 MaH
+            battery = 900; //Initial setup with battery containing 500 MaH
             sHandler = new SensorHandler(@".\SensorPackage\DataSets\location1\December.csv");
             deviceHandler.generateDebugList();
             //DEBUG
@@ -49,21 +49,21 @@ namespace GCProject
         {
 
             Math.Round(power, 2);
-            string p = power.ToString();
+            string p = power.ToString("F");
             CurrentStoredPower.Text = p + " MaH";
         }
 
         public void Update_Power_Generation(decimal power)
         {
             Math.Round(power, 2);
-            string p = power.ToString();
+            string p = power.ToString("F");
             CurrentPowerGeneration.Text = p + " MaH";
         }
 
         public void Update_Power_Expendeture(decimal power)
         {
             Math.Round(power, 2);
-            string p = power.ToString();
+            string p = power.ToString("F");
             CurrentPowerExpendeture.Text = p + " MaH";
         }
 
@@ -84,7 +84,10 @@ namespace GCProject
 
             //TODO this should pop up a modal window to create new devices
             //DEBUG
-            InputDevices.Items.Add("iDev " + SensorHandler.getRandom() % 100);
+            string device_name = "oDev " + SensorHandler.getRandom() % 100;
+            string energy_production_default = "20";
+            deviceHandler.addInputDevice(Device.makeDevice(device_name, energy_production_default, 21));
+            //InputDevices.Items.Add("iDev " + SensorHandler.getRandom() % 100);
         }
 
         private void OutputDevices_add_Click(object sender, EventArgs e)
@@ -93,7 +96,10 @@ namespace GCProject
 
             //TODO this should pop up a modal window to create new devices
             //DEBUG
-            OutputDevices.Items.Add("oDev " + SensorHandler.getRandom() % 100);
+            string device_name = "oDev " + SensorHandler.getRandom() % 100;
+            string energy_consumption_default = "20";
+            deviceHandler.addOutputDevice(Device.makeDevice(device_name, energy_consumption_default, 21));
+            //OutputDevices.Items.Add("oDev " + SensorHandler.getRandom() % 100);
         }
 
         private void InteriorSensors_add_Click(object sender, EventArgs e)
@@ -102,7 +108,10 @@ namespace GCProject
 
             //TODO this should pop up a modal window to create new sensor
             //DEBUG
-            InteriorSensors.Items.Add("iSens " + SensorHandler.getRandom() % 100);
+            string sensor_data_tag = "HOURLYRelativeHumidity";
+            string sensor_data_type = "decimal";
+            sHandler.AddInternal(iSensor.makeSensor(sensor_data_tag, "0", sensor_data_type, true));
+            //InteriorSensors.Items.Add("iSens " + SensorHandler.getRandom() % 100);
         }
 
         private void ExteriorSensors_add_Click(object sender, EventArgs e)
@@ -111,7 +120,10 @@ namespace GCProject
 
             //TODO this should pop up a modal window to create new sensor
             //DEBUG
-            ExteriorSensors.Items.Add("eSens " + SensorHandler.getRandom() % 100);
+            string sensor_data_tag = "HOURLYRelativeHumidity";
+            string sensor_data_type = "decimal";
+            sHandler.AddExternal(iSensor.makeSensor(sensor_data_tag, "0", sensor_data_type, false));
+            //ExteriorSensors.Items.Add("eSens " + SensorHandler.getRandom() % 100);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -134,6 +146,9 @@ namespace GCProject
 
             Update_Input_Device_List();
             Update_Output_Device_List();
+            Update_Internal_Sensor_List();
+            Update_External_Sensor_List();
+            Update_Time_Estimate();
 
             /*
             //DEBUG 
@@ -146,7 +161,7 @@ namespace GCProject
             */
 
             if (battery <= 0)
-                battery = 1000000000;
+                battery = 100000;
         }
 
         public void Update_Input_Device_List()
@@ -154,7 +169,7 @@ namespace GCProject
             InputDevices.Items.Clear();
             foreach (Device d in deviceHandler.inputDevices)
             {
-                InputDevices.Items.Add(d.deviceName);
+                InputDevices.Items.Add(d.ToString());
             }
         }
 
@@ -163,9 +178,43 @@ namespace GCProject
             OutputDevices.Items.Clear();
             foreach (Device d in deviceHandler.outputDevices)
             {
-                OutputDevices.Items.Add(d.deviceName);
+                OutputDevices.Items.Add(d.ToString());
             }
         }
 
+        public void Update_Internal_Sensor_List()
+        {
+            InteriorSensors.Items.Clear();
+            foreach(iSensor i in sHandler.internalSensors)
+            {
+                InteriorSensors.Items.Add(i.ToString());
+            }
+        }
+
+        public void Update_External_Sensor_List()
+        {
+            ExteriorSensors.Items.Clear();
+            foreach (iSensor e in sHandler.externalSensors)
+            {
+                ExteriorSensors.Items.Add(e.ToString());
+            }
+        }
+
+        public void Update_Time_Estimate()
+        {
+            //TODO divide battery by difference, this will be in hours?
+            var usage = deviceHandler.getEnergyDifference();
+            if(usage > 0)
+            {
+                Update_Time_Remaining(999);
+            }
+            else
+            {
+                usage = usage * -1;
+                var estimate = battery / usage;
+                Update_Time_Remaining(Decimal.ToInt32(estimate));
+            }
+           
+        }
     }
 }
